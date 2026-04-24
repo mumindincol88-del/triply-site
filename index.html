@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary SEO -->
+<title>Triply — City Trip Planner | Flights, Hotels, Tours & Restaurants</title>
+<meta name="description" content="Plan your city trip in one place. Compare flights, hotels, tours and restaurants for Istanbul, Barcelona, Paris, London, Rome, New York, Sydney and Cancún — then book safely on trusted platforms.">
+<meta name="keywords" content="city trip planner, travel guide, istanbul travel guide, barcelona trip planner, paris travel, london travel guide, rome trip planner, new york travel, sydney travel guide, cancun travel">
+<meta name="author" content="Triply">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://triply.travel/">
+
+<!-- Open Graph — Facebook, WhatsApp, LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://triply.travel/">
+<meta property="og:title" content="Triply — City Trip Planner | Flights, Hotels, Tours & Restaurants">
+<meta property="og:description" content="Plan your city trip in one place. Flights, hotels, tours and restaurants for Istanbul, Paris, London, Rome, New York and more — book safely on trusted platforms.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80&auto=format&fit=crop">
+<meta property="og:site_name" content="Triply">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Triply — City Trip Planner">
+<meta name="twitter:description" content="Plan flights, hotels, tours and restaurants for your next city trip — all in one place.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80&auto=format&fit=crop">
+
+<!-- Structured Data — WebSite + SearchAction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Triply",
+  "url": "https://triply.travel/",
+  "description": "City trip planner — flights, hotels, tours and restaurants in one place.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://triply.travel/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "sameAs": [
+    "https://instagram.com/triply.travel"
+  ]
+}
+</script>
+
+<!-- Structured Data — ItemList of destinations -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Triply City Guides",
+  "description": "Trip planning pages for top travel destinations",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Istanbul Trip Planner","url":"https://triply.travel/triply_istanbul_page.html"},
+    {"@type":"ListItem","position":2,"name":"Barcelona Trip Planner","url":"https://triply.travel/triply_barcelona_page.html"},
+    {"@type":"ListItem","position":3,"name":"Paris Trip Planner","url":"https://triply.travel/triply_paris_page.html"},
+    {"@type":"ListItem","position":4,"name":"London Trip Planner","url":"https://triply.travel/triply_london_page.html"},
+    {"@type":"ListItem","position":5,"name":"Rome Trip Planner","url":"https://triply.travel/triply_rome_page.html"},
+    {"@type":"ListItem","position":6,"name":"New York Trip Planner","url":"https://triply.travel/triply_newyork_page.html"},
+    {"@type":"ListItem","position":7,"name":"Sydney Trip Planner","url":"https://triply.travel/triply_sydney_page.html"},
+    {"@type":"ListItem","position":8,"name":"Cancún Trip Planner","url":"https://triply.travel/triply_cancun_page.html"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#0A0A0A; --gray-900:#111827; --gray-800:#1F2937; --gray-700:#374151;
+  --gray-600:#4B5563; --gray-400:#9CA3AF; --gray-300:#D1D5DB; --gray-200:#E5E7EB;
+  --gray-100:#F3F4F6; --gray-50:#F9FAFB; --white:#FFFFFF;
+  --accent:#FF5533; --accent-dark:#CC3311; --accent-light:#FFF0ED; --green:#059669;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:0 6px 20px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04);
+  --shadow-lg:0 24px 60px rgba(0,0,0,0.12),0 8px 20px rgba(0,0,0,0.06);
+  --radius:14px; --radius-lg:24px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--gray-900);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1180px,92%);margin:0 auto}
+
+nav{
+  position:sticky;top:0;z-index:50;height:72px;background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(18px);border-bottom:1px solid rgba(229,231,235,0.8)
+}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.65rem;font-weight:800;letter-spacing:-0.04em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--gray-600)}
+.nav-links a:hover{color:var(--black)}
+.nav-right{display:flex;align-items:center;gap:.8rem}
+.lang-toggle{
+  display:flex;align-items:center;background:var(--gray-100);border:1px solid var(--gray-200);
+  border-radius:8px;overflow:hidden;
+}
+.lang-btn{
+  padding:.45rem .75rem;font-size:.8rem;font-weight:700;cursor:pointer;border:none;
+  background:transparent;color:var(--gray-500);font-family:'DM Sans',sans-serif;
+  transition:all .15s;letter-spacing:.02em;
+}
+.lang-btn.active{background:var(--black);color:white;}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:.45rem;background:var(--black);color:white;
+  padding:.72rem 1.1rem;border-radius:10px;font-size:.88rem;font-weight:700
+}
+.nav-cta:hover{background:var(--accent)}
+[lang="tr"] .en-only{display:none!important}
+[lang="en"] .tr-only{display:none!important}
+
+.hero{
+  position:relative;overflow:hidden;
+}
+.hero-bg-images{
+  position:absolute;inset:0;z-index:0;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  opacity:.07;filter:grayscale(1);
+  pointer-events:none;
+}
+.hero-bg-images div{
+  background-size:cover;background-position:center;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,85,51,.10), transparent 38%),
+    radial-gradient(circle at 90% 30%, rgba(37,99,235,.06), transparent 24%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+}
+.hero-inner{padding:5.5rem 0 4.2rem;display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;position:relative;z-index:2}
+.badge{
+  display:inline-flex;align-items:center;gap:.55rem;padding:.45rem .9rem;border-radius:999px;
+  background:var(--accent-light);color:var(--accent);font-size:.78rem;font-weight:700;
+  border:1px solid rgba(255,85,51,.16);margin-bottom:1.3rem
+}
+.badge:before{content:"✦"}
+.hero h1{
+  font-family:'Syne',sans-serif;font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.02;
+  letter-spacing:-.05em;font-weight:800;margin-bottom:1rem;color:var(--black)
+}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{
+  color:var(--gray-600);font-size:1.08rem;line-height:1.75;max-width:650px;margin-bottom:1.6rem
+}
+.hero-points{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2rem}
+.hero-point{
+  padding:.55rem .9rem;background:#fff;border:1px solid var(--gray-200);border-radius:999px;
+  font-size:.82rem;font-weight:600;color:var(--gray-700);box-shadow:var(--shadow-sm)
+}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-primary,.btn-secondary{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.2rem;
+  border-radius:12px;font-weight:700;font-size:.92rem
+}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-secondary{background:#fff;border:1px solid var(--gray-200);color:var(--black)}
+.btn-secondary:hover{border-color:var(--black)}
+
+.hero-card{
+  background:rgba(255,255,255,.88);border:1px solid rgba(229,231,235,.9);border-radius:24px;
+  box-shadow:var(--shadow-lg);padding:1.1rem
+}
+/* ── ASSISTANT CARD ── */
+.assistant-header {
+  display:flex; align-items:center; gap:.8rem; margin-bottom:1.2rem;
+}
+.assistant-avatar {
+  width:38px; height:38px; border-radius:50%;
+  background:var(--black); color:white;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem; flex-shrink:0;
+}
+.assistant-name {
+  font-family:'Syne',sans-serif; font-size:.88rem; font-weight:800; color:var(--black);
+}
+.assistant-status {
+  font-size:.82rem; color:var(--gray-600); margin-top:.1rem; line-height:1.4;
+}
+.assistant-options {
+  display:grid; grid-template-columns:1fr 1fr; gap:.6rem; margin-bottom:.5rem;
+}
+.assist-opt {
+  display:flex; align-items:center; gap:.5rem;
+  padding:.7rem .9rem; border-radius:10px;
+  border:1.5px solid var(--gray-200); background:white;
+  font-family:'DM Sans',sans-serif; font-size:.84rem; font-weight:600;
+  color:var(--gray-700); cursor:pointer; transition:all .15s; text-align:left;
+}
+.assist-opt:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-light); }
+.assist-opt.selected { border-color:var(--black); background:var(--black); color:white; }
+.assist-progress {
+  display:flex; gap:.4rem; justify-content:center; margin-top:1rem;
+}
+.progress-dot {
+  width:7px; height:7px; border-radius:50%; background:var(--gray-200); transition:all .2s;
+}
+.progress-dot.active { background:var(--black); width:18px; border-radius:4px; }
+.result-cities {
+  display:flex; flex-direction:column; gap:.6rem; margin-bottom:.9rem;
+}
+.result-city {
+  display:flex; align-items:center; gap:.9rem;
+  padding:.8rem 1rem; border-radius:10px;
+  border:1.5px solid var(--gray-200); background:var(--gray-50);
+  text-decoration:none; transition:all .2s; cursor:pointer;
+}
+.result-city:hover { border-color:var(--accent); background:var(--accent-light); }
+.result-city-flag { font-size:1.5rem; flex-shrink:0; }
+.result-city-info { flex:1; }
+.result-city-name {
+  font-family:'Syne',sans-serif; font-size:.95rem; font-weight:800; color:var(--black);
+}
+.result-city-reason { font-size:.75rem; color:var(--gray-500); margin-top:.1rem; }
+.result-city-arrow {
+  font-size:.9rem; color:var(--gray-400); transition:transform .2s;
+}
+.result-city:hover .result-city-arrow { transform:translateX(4px); color:var(--accent); }
+.result-city.top-pick { border-color:var(--accent); background:var(--accent-light); }
+.result-city.top-pick .result-city-name { color:var(--accent-dark); }
+.top-pick-badge {
+  font-size:.65rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--accent); background:white; padding:.15rem .5rem; border-radius:4px;
+  border:1px solid var(--accent); margin-left:.5rem;
+}
+.assist-reset {
+  background:none; border:none; font-family:'DM Sans',sans-serif;
+  font-size:.78rem; color:var(--gray-400); cursor:pointer; padding:.3rem 0;
+}
+.assist-reset:hover { color:var(--black); }
+.assistant-step { animation:fadeIn .25s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+.search-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;margin:.15rem 0 .9rem}
+.search-box{
+  display:grid;grid-template-columns:1.4fr 1fr auto;gap:.6rem;align-items:end
+}
+.field{display:flex;flex-direction:column;gap:.3rem;padding:.8rem .95rem;border:1.5px solid var(--gray-200);border-radius:12px;background:white}
+.field label{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-400)}
+.field input,.field select{
+  border:none;outline:none;background:transparent;font-family:'DM Sans',sans-serif;color:var(--black);
+  font-size:.94rem;font-weight:600
+}
+.search-button{
+  border:none;background:var(--black);color:white;padding:1rem 1.15rem;border-radius:12px;
+  font-size:.9rem;font-weight:800;cursor:pointer
+}
+.search-button:hover{background:var(--accent)}
+.partner-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.9rem}
+.partner-chip{
+  padding:.35rem .65rem;border-radius:999px;background:var(--gray-100);color:var(--gray-700);
+  font-size:.76rem;font-weight:700;border:1px solid var(--gray-200)
+}
+.hero-note{font-size:.78rem;color:var(--gray-500);margin-top:.8rem;line-height:1.6}
+
+.trust-strip{
+  padding:1rem 0;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);background:white
+}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.trust-item{
+  display:flex;align-items:flex-start;gap:.7rem;padding:1rem;background:var(--gray-50);
+  border:1px solid var(--gray-200);border-radius:14px
+}
+.trust-item strong{display:block;font-size:.9rem;margin-bottom:.2rem}
+.trust-item span{font-size:.8rem;color:var(--gray-600);line-height:1.55}
+
+/* ── PARTNER STRIP (güçlü) ── */
+.partner-strip{
+  background:var(--gray-900);
+  border-top:3px solid var(--accent);
+}
+.partner-strip-inner{
+  padding:1.2rem 0;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+}
+.partner-strip-label{
+  font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);white-space:nowrap;
+}
+.partner-logos{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.partner-logo{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.52rem .95rem;border-radius:8px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.75);font-size:.8rem;font-weight:700;
+  text-decoration:none;transition:all .2s;letter-spacing:.01em;
+}
+.partner-logo:hover{background:rgba(255,255,255,.13);color:#fff;border-color:rgba(255,255,255,.22)}
+
+/* ── SOSYAL KANIT ── */
+.social-proof{
+  background:var(--gray-50);border-bottom:1px solid var(--gray-200);
+  padding:.95rem 0;
+}
+.social-proof-inner{
+  display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;
+}
+.sp-item{display:flex;align-items:center;gap:.55rem}
+.sp-num{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;color:var(--black)}
+.sp-label{font-size:.73rem;color:var(--gray-500);font-weight:500}
+.sp-divider{width:1px;height:24px;background:var(--gray-200)}
+
+.section{padding:4.5rem 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.6rem}
+.eyebrow{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--accent);margin-bottom:.45rem}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;letter-spacing:-.04em}
+.section-sub{color:var(--gray-600);font-size:.98rem;line-height:1.7;max-width:680px}
+
+.destinations{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;gap:1rem}
+.dest-card{
+  position:relative;min-height:220px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-md);
+  border:1px solid rgba(255,255,255,.18);display:flex;align-items:flex-end
+}
+.dest-card.large{grid-row:span 2;min-height:460px}
+.dest-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02)
+}
+.dest-bg:after{
+  content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.05) 100%)
+}
+.dest-content{position:relative;z-index:1;padding:1.25rem}
+.dest-kicker{
+  display:inline-flex;align-items:center;padding:.32rem .65rem;border-radius:999px;background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);color:white;font-size:.72rem;font-weight:800;margin-bottom:.7rem
+}
+.dest-name{font-family:'Syne',sans-serif;font-size:1.45rem;color:white;font-weight:800;letter-spacing:-.03em}
+.dest-meta{font-size:.82rem;color:rgba(255,255,255,.78);margin:.25rem 0 .9rem}
+.dest-button{
+  display:inline-flex;align-items:center;gap:.4rem;background:white;color:var(--black);padding:.7rem 1rem;border-radius:12px;font-weight:800;font-size:.86rem
+}
+.dest-button:hover{background:var(--accent);color:white}
+
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.how-card{
+  background:white;border:1px solid var(--gray-200);border-radius:18px;padding:1.4rem;box-shadow:var(--shadow-sm)
+}
+.how-num{
+  width:42px;height:42px;border-radius:999px;display:flex;align-items:center;justify-content:center;
+  background:var(--accent);color:white;font-family:'Syne',sans-serif;font-weight:800;margin-bottom:.9rem
+}
+.how-card h3{font-family:'Syne',sans-serif;font-size:1rem;margin-bottom:.35rem}
+.how-card p{font-size:.86rem;color:var(--gray-600);line-height:1.65}
+
+.showcase{
+  background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)
+}
+.showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.showcase-card{
+  background:white;border:1px solid var(--gray-200);border-radius:18px;padding:1.3rem;box-shadow:var(--shadow-sm)
+}
+.showcase-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;margin-bottom:.55rem}
+.showcase-card p{color:var(--gray-600);font-size:.88rem;line-height:1.7;margin-bottom:1rem}
+.showcase-list{display:grid;gap:.55rem}
+.showcase-list div{font-size:.84rem;color:var(--gray-700);padding:.65rem .8rem;background:var(--gray-50);border-radius:10px;border:1px solid var(--gray-200)}
+
+.cta-band{
+  background:linear-gradient(180deg,#fff 0%, #fff7f4 100%);
+}
+.cta-wrap{
+  background:white;border:1px solid var(--gray-200);border-radius:24px;box-shadow:var(--shadow-lg);padding:1.5rem;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:1rem;align-items:center
+}
+.cta-wrap h3{font-family:'Syne',sans-serif;font-size:1.55rem;letter-spacing:-.03em;margin-bottom:.55rem}
+.cta-wrap p{color:var(--gray-600);line-height:1.75}
+.cta-actions{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:flex-end}
+
+footer{background:var(--black);padding:3rem 0 2rem;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:white;margin-bottom:.8rem}
+.footer-logo span{color:var(--accent)}
+.footer-text{color:rgba(255,255,255,.5);font-size:.86rem;line-height:1.75;max-width:420px}
+.footer-col h4{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.9rem}
+.footer-col a{display:block;color:rgba(255,255,255,.58);font-size:.88rem;margin-bottom:.55rem}
+.footer-col a:hover{color:white}
+.footer-bottom{padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.footer-bottom span{color:rgba(255,255,255,.32);font-size:.78rem;line-height:1.6}
+
+@media (max-width: 980px){
+  .hero-inner,.cta-wrap,.showcase-grid{grid-template-columns:1fr}
+  .trust-grid,.how-grid{grid-template-columns:1fr 1fr}
+  .destinations{grid-template-columns:1fr 1fr}
+  .dest-card.large{grid-row:auto;min-height:280px}
+  .cta-actions{justify-content:flex-start}
+}
+@media (max-width: 720px){
+  .nav-links{display:none}
+  .hero-inner{padding:4rem 0 3.2rem}
+  .search-box{grid-template-columns:1fr}
+  .trust-grid,.how-grid,.destinations,.footer-grid{grid-template-columns:1fr}
+  .dest-card,.dest-card.large{min-height:240px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a href="triply_homepage.html" class="nav-logo">Triply<span>.</span></a>
+    <div class="nav-links">
+      <a href="#destinations" class="en-only">Destinations</a>
+      <a href="#destinations" class="tr-only">Destinasyonlar</a>
+      <a href="#why-triply" class="en-only">Why Triply</a>
+      <a href="#why-triply" class="tr-only">Neden Triply</a>
+      <a href="#how-it-works" class="en-only">How it works</a>
+      <a href="#how-it-works" class="tr-only">Nasıl Çalışır</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+      </div>
+      <a class="nav-cta en-only" href="#destinations">Explore Cities →</a>
+      <a class="nav-cta tr-only" href="#destinations">Şehirleri Keşfet →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-images">
+    <div style="background-image:url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400&q=60&auto=format&fit=crop')"></div>
+    <div style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&q=60&auto=format&fit=crop')"></div>
+    <div style="background-image:url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400&q=60&auto=format&fit=crop')"></div>
+    <div style="background-image:url('https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?w=400&q=60&auto=format&fit=crop')"></div>
+  </div>
+  <div class="container hero-inner">
+    <div>
+      <div class="badge en-only">Trusted travel planning, not checkout risk</div>
+      <div class="badge tr-only">Güvenilir seyahat planlaması, ödeme riski yok</div>
+      <h1 class="en-only">Plan faster. <em>Book safer.</em></h1>
+      <h1 class="tr-only">Daha hızlı planla. <em>Daha güvenli rezervasyon.</em></h1>
+      <p class="en-only">Triply helps you compare flights, hotels, tours and restaurants in one place — then sends you to trusted partners like Booking.com, Skyscanner and Viator to complete your booking securely.</p>
+      <p class="tr-only">Triply ile uçuş, otel, tur ve restoranları tek yerde karşılaştırın — ödemenizi Booking.com, Skyscanner ve Viator gibi güvenilir platformlarda tamamlayın.</p>
+      <div class="hero-points">
+        <div class="hero-point en-only">Trusted partners only</div>
+        <div class="hero-point tr-only">Sadece güvenilir platformlar</div>
+        <div class="hero-point en-only">One page per city</div>
+        <div class="hero-point tr-only">Her şehir tek sayfa</div>
+        <div class="hero-point en-only">No fake checkout</div>
+        <div class="hero-point tr-only">Triply'de ödeme yok</div>
+        <div class="hero-point en-only">Built for quick decisions</div>
+        <div class="hero-point tr-only">Hızlı karar için tasarlandı</div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn-primary en-only" href="#destinations">Explore All Cities →</a>
+        <a class="btn-primary tr-only" href="#destinations">Tüm Şehirleri Gör →</a>
+        <a class="btn-secondary en-only" href="#why-triply">Why Triply works</a>
+        <a class="btn-secondary tr-only" href="#why-triply">Neden Triply?</a>
+      </div>
+    </div>
+
+    <div class="hero-card" id="assistant-card">
+
+      <!-- Step 1 -->
+      <div class="assistant-step" id="step-1">
+        <div class="assistant-header">
+          <div class="assistant-avatar">✦</div>
+          <div>
+            <div class="assistant-name en-only">Triply Assistant</div>
+            <div class="assistant-name tr-only">Triply Asistanı</div>
+            <div class="assistant-status en-only">What kind of trip are you planning?</div>
+            <div class="assistant-status tr-only">Nasıl bir gezi planlıyorsun?</div>
+          </div>
+        </div>
+        <div class="assistant-options">
+          <button class="assist-opt" onclick="nextStep(1,'culture')">🏛️ <span class="en-only">History & Culture</span><span class="tr-only">Tarih & Kültür</span></button>
+          <button class="assist-opt" onclick="nextStep(1,'food')">🍽️ <span class="en-only">Food & Gastronomy</span><span class="tr-only">Yemek & Gastronomi</span></button>
+          <button class="assist-opt" onclick="nextStep(1,'beach')">🏖️ <span class="en-only">Sun & Beach</span><span class="tr-only">Güneş & Plaj</span></button>
+          <button class="assist-opt" onclick="nextStep(1,'city')">🌆 <span class="en-only">City & Nightlife</span><span class="tr-only">Şehir & Gece Hayatı</span></button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="assistant-step" id="step-2" style="display:none">
+        <div class="assistant-header">
+          <div class="assistant-avatar">✦</div>
+          <div>
+            <div class="assistant-name en-only">Triply Assistant</div>
+            <div class="assistant-name tr-only">Triply Asistanı</div>
+            <div class="assistant-status en-only">How long is your trip?</div>
+            <div class="assistant-status tr-only">Kaç günlük bir gezi?</div>
+          </div>
+        </div>
+        <div class="assistant-options">
+          <button class="assist-opt" onclick="nextStep(2,'short')">⚡ <span class="en-only">3–4 days</span><span class="tr-only">3–4 gün</span></button>
+          <button class="assist-opt" onclick="nextStep(2,'week')">📅 <span class="en-only">5–7 days</span><span class="tr-only">5–7 gün</span></button>
+          <button class="assist-opt" onclick="nextStep(2,'long')">🗺️ <span class="en-only">1–2 weeks</span><span class="tr-only">1–2 hafta</span></button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="assistant-step" id="step-3" style="display:none">
+        <div class="assistant-header">
+          <div class="assistant-avatar">✦</div>
+          <div>
+            <div class="assistant-name en-only">Triply Assistant</div>
+            <div class="assistant-name tr-only">Triply Asistanı</div>
+            <div class="assistant-status en-only">Who are you travelling with?</div>
+            <div class="assistant-status tr-only">Kiminle gidiyorsun?</div>
+          </div>
+        </div>
+        <div class="assistant-options">
+          <button class="assist-opt" onclick="showResult()">👤 <span class="en-only">Solo</span><span class="tr-only">Yalnız</span></button>
+          <button class="assist-opt" onclick="showResult()">💑 <span class="en-only">Couple</span><span class="tr-only">Çift</span></button>
+          <button class="assist-opt" onclick="showResult()">👨‍👩‍👧 <span class="en-only">Family</span><span class="tr-only">Aile</span></button>
+          <button class="assist-opt" onclick="showResult()">👯 <span class="en-only">Friends</span><span class="tr-only">Arkadaşlar</span></button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="assistant-step" id="step-result" style="display:none">
+        <div class="assistant-header">
+          <div class="assistant-avatar">✦</div>
+          <div>
+            <div class="assistant-name en-only">Triply Assistant</div>
+            <div class="assistant-name tr-only">Triply Asistanı</div>
+            <div class="assistant-status en-only" id="result-msg">Based on your answers, here's your match:</div>
+            <div class="assistant-status tr-only" id="result-msg-tr">Cevaplarına göre önerilerim:</div>
+          </div>
+        </div>
+        <div id="result-cities" class="result-cities"></div>
+        <button class="assist-reset en-only" onclick="resetAssistant()">← Start over</button>
+        <button class="assist-reset tr-only" onclick="resetAssistant()">← Yeniden başla</button>
+      </div>
+
+      <!-- Progress dots -->
+      <div class="assist-progress" id="assist-progress">
+        <div class="progress-dot active" id="dot-1"></div>
+        <div class="progress-dot" id="dot-2"></div>
+        <div class="progress-dot" id="dot-3"></div>
+      </div>
+
+      <div class="hero-note en-only" style="margin-top:.8rem">🔒 No payment on Triply. You book on trusted partner platforms.</div>
+      <div class="hero-note tr-only" style="margin-top:.8rem">🔒 Triply'de ödeme yok. Güvenilir partner platformlarda ödersin.</div>
+    </div>
+      </div>
+      <div class="partner-row">
+        <span class="partner-chip">💙 Booking.com</span>
+        <span class="partner-chip">🔵 Skyscanner</span>
+        <span class="partner-chip">🟢 Viator</span>
+        <span class="partner-chip">🍴 TheFork</span>
+      </div>
+      <div class="hero-note">🔒 No payment on Triply. You book directly on trusted partner platforms.</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip" id="why-triply">
+  <div class="container trust-grid">
+    <div class="trust-item"><div style="font-size:1.4rem">🔒</div><div><strong class="en-only">Book on trusted brands</strong><strong class="tr-only">Güvenilir markalarda rezervasyon</strong><span class="en-only">No card details on Triply. Booking happens on Booking.com, Skyscanner, Viator and TheFork.</span><span class="tr-only">Triply'de kart bilgisi girilmez. Ödeme Booking.com, Skyscanner ve Viator'da yapılır.</span></div></div>
+    <div class="trust-item"><div style="font-size:1.4rem">🧭</div><div><strong class="en-only">One city, one clear page</strong><strong class="tr-only">Bir şehir, bir net sayfa</strong><span class="en-only">No messy tabs. Each city has flights, hotels, tours, food and a 3-day plan — in the right order.</span><span class="tr-only">Dağınık sekme yok. Her şehirde uçuş, otel, tur, yemek ve plan — doğru sırayla.</span></div></div>
+    <div class="trust-item"><div style="font-size:1.4rem">⚡</div><div><strong class="en-only">Decision-first structure</strong><strong class="tr-only">Karar odaklı yapı</strong><span class="en-only">Built around what travelers actually need: where to stay, what to book, what to avoid.</span><span class="tr-only">Gezginlerin gerçekten ihtiyaç duyduğu şey: nerede kal, ne rezerve et, neden kaçın.</span></div></div>
+    <div class="trust-item"><div style="font-size:1.4rem">🎯</div><div><strong class="en-only">Completely free to use</strong><strong class="tr-only">Tamamen ücretsiz</strong><span class="en-only">Triply earns small affiliate commissions when you book through partner links — at no extra cost to you.</span><span class="tr-only">Partner linklerinden yapılan rezervasyonlarda küçük komisyon kazanılabilir — sana ek maliyet yok.</span></div></div>
+  </div>
+</div>
+
+<!-- PARTNER STRIP -->
+<div class="partner-strip">
+  <div class="container partner-strip-inner">
+    <div class="partner-strip-label en-only">Bookings completed on</div>
+    <div class="partner-strip-label tr-only">Rezervasyonlar bu platformlarda tamamlanır</div>
+    <div class="partner-logos">
+      <a class="partner-logo" href="https://www.booking.com?aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener">💙 Booking.com</a>
+      <a class="partner-logo" href="https://www.skyscanner.net?associateid=AFF_TRA_19354_00001" target="_blank" rel="sponsored noopener">🔵 Skyscanner</a>
+      <a class="partner-logo" href="https://www.viator.com?pid=P00057720" target="_blank" rel="sponsored noopener">🟢 Viator</a>
+      <a class="partner-logo" href="https://www.klook.com?aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener">🟠 Klook</a>
+      <a class="partner-logo" href="https://www.thefork.com?aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener">🍴 TheFork</a>
+    </div>
+  </div>
+</div>
+
+<!-- SOSYAL KANIT -->
+<div class="social-proof">
+  <div class="container social-proof-inner">
+    <div class="sp-item">
+      <div class="sp-num">8</div>
+      <div class="sp-label en-only">Cities live</div>
+      <div class="sp-label tr-only">Aktif şehir</div>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <div class="sp-num">5</div>
+      <div class="sp-label en-only">Trusted booking partners</div>
+      <div class="sp-label tr-only">Güvenilir partner</div>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <div class="sp-num">Free</div>
+      <div class="sp-label en-only">Always free to use</div>
+      <div class="sp-label tr-only">Her zaman ücretsiz</div>
+    </div>
+    <div class="sp-divider"></div>
+    <div class="sp-item">
+      <div class="sp-num">🔒</div>
+      <div class="sp-label en-only">No payment on Triply</div>
+      <div class="sp-label tr-only">Triply'de ödeme yok</div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="destinations">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Start here</div>
+        <div class="section-title">Choose a city and get one focused planning page</div>
+      </div>
+    </div>
+    <div class="section-sub">Instead of making you jump between flights, hotels, blogs and activity sites, Triply sends you into a city-specific page that keeps everything in one clear flow.</div>
+
+    <div class="destinations" style="margin-top:1.6rem">
+      <a class="dest-card large" href="triply_istanbul_page.html">
+        <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=80&auto=format&fit=crop')"></div>
+        <div class="dest-content">
+          <div class="dest-kicker">⭐ Editor's pick</div>
+          <div class="dest-name" style="font-size:2.2rem">İstanbul</div>
+          <div class="dest-meta">Bosphorus, historic peninsula, world-class food scene — everything on one focused page.</div>
+          <span class="dest-button">Open Istanbul guide →</span>
+        </div>
+      </a>
+      <a class="dest-card" href="triply_barcelona_page.html">
+        <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="dest-content">
+          <div class="dest-kicker">Live now</div>
+          <div class="dest-name">Barcelona</div>
+          <div class="dest-meta">Gaudí, beaches, food.</div>
+          <span class="dest-button">Explore →</span>
+        </div>
+      </a>
+      <a class="dest-card" href="triply_paris_page.html">
+        <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="dest-content">
+          <div class="dest-kicker">Live now</div>
+          <div class="dest-name">Paris</div>
+          <div class="dest-meta">Eiffel, Louvre, bistros.</div>
+          <span class="dest-button">Explore →</span>
+        </div>
+      </a>
+      <a class="dest-card" href="triply_rome_page.html">
+        <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="dest-content">
+          <div class="dest-kicker">Live now</div>
+          <div class="dest-name">Rome</div>
+          <div class="dest-meta">Colosseum, Vatican, food.</div>
+          <span class="dest-button">Explore →</span>
+        </div>
+      </a>
+      <a class="dest-card" href="triply_london_page.html">
+        <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="dest-content">
+          <div class="dest-kicker">Live now</div>
+          <div class="dest-name">London</div>
+          <div class="dest-meta">Tower, museums, culture.</div>
+          <span class="dest-button">Explore →</span>
+        </div>
+      </a>
+      <a class="dest-card" href="triply_newyork_page.html">
+        <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="dest-content">
+          <div class="dest-kicker">Live now</div>
+          <div class="dest-name">New York</div>
+          <div class="dest-meta">Manhattan, Brooklyn, food.</div>
+          <span class="dest-button">Explore →</span>
+        </div>
+      </a>
+      <a class="dest-card" href="triply_sydney_page.html">
+        <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="dest-content">
+          <div class="dest-kicker">Live now</div>
+          <div class="dest-name">Sydney</div>
+          <div class="dest-meta">Harbour, Bondi, Blue Mountains.</div>
+          <span class="dest-button">Explore →</span>
+        </div>
+      </a>
+      <a class="dest-card" href="triply_cancun_page.html">
+        <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1510097467424-192d713fd8b2?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="dest-content">
+          <div class="dest-kicker">Live now</div>
+          <div class="dest-name">Cancún</div>
+          <div class="dest-meta">Beaches, cenotes, Chichen Itza.</div>
+          <span class="dest-button">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section showcase">
+  <div class="container showcase-grid">
+    <div class="showcase-card">
+      <h3>What you get on a city page</h3>
+      <p>Every destination page is built like a decision engine, not a random blog post.</p>
+      <div class="showcase-list">
+        <div>✈️ Flight search block with trusted redirect</div>
+        <div>🏨 Best areas to stay + hotel booking links</div>
+        <div>🎫 Top tours worth paying for</div>
+        <div>🍴 Restaurant picks by mood and budget</div>
+        <div>🗺️ Ready 3-day itinerary</div>
+        <div>💶 Budget expectations + common mistakes</div>
+      </div>
+    </div>
+    <div class="showcase-card">
+      <h3>Why travelers trust the model</h3>
+      <p>People may not know Triply yet — but they already know the brands that complete the booking.</p>
+      <div class="showcase-list">
+        <div>💳 No payment collection on Triply</div>
+        <div>🧾 Booking confirmations come from partner platforms</div>
+        <div>📍 Less confusion, fewer tabs, faster choices</div>
+        <div>🔁 Users can compare, return, and continue planning</div>
+        <div>🛡️ Better trust transfer from major brands</div>
+        <div>📈 Cleaner affiliate funnel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">How it works</div>
+        <div class="section-title">Simple by design</div>
+      </div>
+    </div>
+    <div class="how-grid">
+      <div class="how-card"><div class="how-num">1</div><h3>Choose a city</h3><p>Start from a trusted homepage and pick the destination you care about.</p></div>
+      <div class="how-card"><div class="how-num">2</div><h3>Plan on one page</h3><p>See flights, hotels, tours, restaurants and itinerary together, in the right order.</p></div>
+      <div class="how-card"><div class="how-num">3</div><h3>Compare trusted options</h3><p>Use clear recommendations, not overwhelming lists, to decide faster.</p></div>
+      <div class="how-card"><div class="how-num">4</div><h3>Book safely off-site</h3><p>Finish the purchase on Booking.com, Skyscanner, Viator or other established partners.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container cta-wrap">
+    <div>
+    <h3 class="en-only">8 cities live — pick yours and start planning</h3>
+    <h3 class="tr-only">8 şehir aktif — seçin ve planlamaya başlayın</h3>
+    <p class="en-only">Istanbul, Barcelona, Paris, London, Rome, New York, Sydney and Cancún — each with flights, hotels, tours, restaurants and a ready itinerary.</p>
+    <p class="tr-only">İstanbul, Barselona, Paris, Londra, Roma, New York, Sidney ve Cancún — her biri uçuş, otel, tur, restoran ve hazır rota ile.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="#destinations">See All Cities →</a>
+      <a class="btn-secondary" href="#how-it-works">How it works</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Triply<span>.</span></div>
+        <div class="footer-text en-only">Triply helps travelers compare trusted booking partners and organize city trips with less friction. Discover here, book safely there.</div>
+        <div class="footer-text tr-only">Triply, gezginlerin güvenilir rezervasyon platformlarını karşılaştırmasına yardımcı olur. Burada keşfet, güvenli yerde öde.</div>
+      </div>
+      <div class="footer-col">
+        <h4 class="en-only">Destinations</h4>
+        <h4 class="tr-only">Destinasyonlar</h4>
+        <a href="triply_istanbul_page.html">🇹🇷 İstanbul</a>
+        <a href="triply_barcelona_page.html">🇪🇸 Barcelona</a>
+        <a href="triply_paris_page.html">🇫🇷 Paris</a>
+        <a href="triply_london_page.html">🇬🇧 London</a>
+        <a href="triply_rome_page.html">🇮🇹 Rome</a>
+        <a href="triply_newyork_page.html">🇺🇸 New York</a>
+        <a href="triply_sydney_page.html">🇦🇺 Sydney</a>
+        <a href="triply_cancun_page.html">🇲🇽 Cancún</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="en-only">About</h4>
+        <h4 class="tr-only">Hakkında</h4>
+        <a href="#why-triply" class="en-only">Why Triply</a>
+        <a href="#why-triply" class="tr-only">Neden Triply</a>
+        <a href="#how-it-works" class="en-only">How it works</a>
+        <a href="#how-it-works" class="tr-only">Nasıl çalışır</a>
+        <a href="#" class="en-only">Affiliate disclosure</a>
+        <a href="#" class="tr-only">Affiliate açıklaması</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="en-only">© 2026 Triply. Travel planning layer with partner redirects.</span>
+      <span class="tr-only">© 2026 Triply. Partner yönlendirmeli seyahat planlama katmanı.</span>
+      <span class="en-only">Triply may earn affiliate commissions when you book through partner links.</span>
+      <span class="tr-only">Partner linklerinden yapılan rezervasyonlarda küçük komisyon kazanılabilir.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── ASSISTANT LOGIC ──
+const answers = {};
+
+const cityData = {
+  istanbul: {
+    flag:'🇹🇷', name:'Istanbul', file:'triply_istanbul_page.html',
+    tags:['culture','food','city'],
+    reasons: {
+      culture:'Two continents, 3,000 years of history',
+      food:'One of the world\'s top food cities',
+      city:'Vibrant nightlife, Bosphorus views',
+      beach:'Princes\' Islands, short ferry away',
+      short:'3–4 days covers the essentials',
+      week:'Perfect for a full immersion',
+      long:'Explore both continents deeply'
+    }
+  },
+  barcelona: {
+    flag:'🇪🇸', name:'Barcelona', file:'triply_barcelona_page.html',
+    tags:['culture','food','beach','city'],
+    reasons: {
+      culture:'Gaudí, Gothic Quarter, world-class art',
+      food:'Tapas, seafood, top restaurants',
+      beach:'Barceloneta beach in the heart of the city',
+      city:'Best nightlife in Europe',
+      short:'3 days covers Gaudí + old town + beach',
+      week:'Perfect pace for Barcelona',
+    }
+  },
+  paris: {
+    flag:'🇫🇷', name:'Paris', file:'triply_paris_page.html',
+    tags:['culture','food','city'],
+    reasons: {
+      culture:'Louvre, Eiffel, Notre-Dame — unmatched',
+      food:'Bistros, bakeries, Michelin stars',
+      city:'Romance, fashion, iconic streets',
+      short:'4 days hits the classics',
+      week:'Time to get off the tourist trail',
+    }
+  },
+  rome: {
+    flag:'🇮🇹', name:'Rome', file:'triply_rome_page.html',
+    tags:['culture','food'],
+    reasons: {
+      culture:'Colosseum, Vatican — 3,000 years in one city',
+      food:'Cacio e pepe, supplì, gelato — eat your way around',
+      short:'3 days covers ancient + Vatican + food',
+      week:'Perfect depth for Rome',
+    }
+  },
+  london: {
+    flag:'🇬🇧', name:'London', file:'triply_london_page.html',
+    tags:['culture','city','food'],
+    reasons: {
+      culture:'World\'s best free museums, history everywhere',
+      city:'West End shows, diverse neighbourhoods',
+      food:'Best restaurant scene in Europe right now',
+      long:'A week+ to scratch the surface properly',
+    }
+  },
+  newyork: {
+    flag:'🇺🇸', name:'New York', file:'triply_newyork_page.html',
+    tags:['city','food'],
+    reasons: {
+      city:'The city that never sleeps — energy unlike anywhere',
+      food:'Every cuisine, every price point, all brilliant',
+      week:'5–7 days to hit Manhattan + Brooklyn',
+      long:'You could spend months and not finish',
+    }
+  },
+  sydney: {
+    flag:'🇦🇺', name:'Sydney', file:'triply_sydney_page.html',
+    tags:['beach','city','food'],
+    reasons: {
+      beach:'Bondi, Manly, coastal walks — world class',
+      city:'Harbour, Opera House, vibrant neighbourhoods',
+      food:'One of the world\'s top food cities',
+      week:'5–7 days ideal for Sydney',
+      long:'Add Blue Mountains + day trips',
+    }
+  },
+  cancun: {
+    flag:'🇲🇽', name:'Cancún', file:'triply_cancun_page.html',
+    tags:['beach'],
+    reasons: {
+      beach:'Turquoise Caribbean water, white sand beaches',
+      culture:'Chichen Itza + cenotes make it more than a beach trip',
+      week:'5–7 days: beach + ruins + cenotes',
+      long:'Explore Playa del Carmen and Tulum too',
+    }
+  }
+};
+
+function nextStep(step, value) {
+  answers['step' + step] = value;
+
+  // Animate selected button
+  const currentStep = document.getElementById('step-' + step);
+  currentStep.querySelectorAll('.assist-opt').forEach(b => {
+    if (b.getAttribute('onclick').includes(`'${value}'`)) b.classList.add('selected');
+  });
+
+  setTimeout(() => {
+    currentStep.style.display = 'none';
+    const next = document.getElementById('step-' + (step + 1));
+    if (next) {
+      next.style.display = 'block';
+      // Update progress dots
+      document.querySelectorAll('.progress-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === step);
+      });
+    }
+  }, 200);
+}
+
+function showResult() {
+  document.getElementById('step-3').style.display = 'none';
+  document.getElementById('step-result').style.display = 'block';
+  document.querySelectorAll('.progress-dot').forEach(d => d.classList.remove('active'));
+
+  const tripType = answers.step1;
+  const duration = answers.step2;
+  const lang = document.documentElement.lang || 'en';
+
+  // Score each city
+  const scored = Object.entries(cityData).map(([key, city]) => {
+    let score = 0;
+    if (city.tags.includes(tripType)) score += 3;
+    if (duration === 'short' && city.reasons.short) score += 1;
+    if (duration === 'week' && city.reasons.week) score += 1;
+    if (duration === 'long' && city.reasons.long) score += 1;
+    return { key, city, score };
+  }).sort((a, b) => b.score - a.score);
+
+  const top3 = scored.slice(0, 3);
+
+  const reasonKey = tripType;
+  const durationKey = duration === 'short' ? 'short' : duration === 'week' ? 'week' : 'long';
+
+  const msgEN = { culture:'Based on your love of history & culture:', food:'For a foodie trip:', beach:'For a sun & beach escape:', city:'For a city & nightlife experience:' };
+  const msgTR = { culture:'Tarih & kültür tercihin için:', food:'Gastronomi gezisi için:', beach:'Güneş & plaj için:', city:'Şehir & gece hayatı için:' };
+
+  document.getElementById('result-msg').textContent = msgEN[tripType] || 'Your top matches:';
+  document.getElementById('result-msg-tr').textContent = msgTR[tripType] || 'Önerilerim:';
+
+  const container = document.getElementById('result-cities');
+  container.innerHTML = top3.map((item, i) => {
+    const reason = item.city.reasons[reasonKey] || item.city.reasons[durationKey] || 'Great match for your trip';
+    const isTop = i === 0;
+    const badgeEN = isTop ? '<span class="top-pick-badge">Best match</span>' : '';
+    const badgeTR = isTop ? '<span class="top-pick-badge">En iyi eşleşme</span>' : '';
+    return `<a href="${item.city.file}" class="result-city ${isTop ? 'top-pick' : ''}">
+      <div class="result-city-flag">${item.city.flag}</div>
+      <div class="result-city-info">
+        <div class="result-city-name">${item.city.name}<span class="en-only">${badgeEN}</span><span class="tr-only">${badgeTR}</span></div>
+        <div class="result-city-reason">${reason}</div>
+      </div>
+      <div class="result-city-arrow">→</div>
+    </a>`;
+  }).join('');
+}
+
+function resetAssistant() {
+  answers.step1 = answers.step2 = answers.step3 = null;
+  ['step-1','step-2','step-3','step-result'].forEach((id, i) => {
+    document.getElementById(id).style.display = i === 0 ? 'block' : 'none';
+  });
+  document.querySelectorAll('.assist-opt').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.progress-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === 0);
+  });
+}
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+  localStorage.setItem('triply_lang', lang);
+}
+function goToCity(){
+  const value = document.getElementById('citySelect').value;
+  if(value){ window.location.href = value; }
+}
+// Restore saved language
+(function(){
+  const saved = localStorage.getItem('triply_lang');
+  if(saved === 'tr') setLang('tr');
+})();
+</script>
+</body>
+</html>
