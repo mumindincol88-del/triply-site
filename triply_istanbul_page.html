@@ -235,33 +235,7 @@ footer{background:var(--black);padding:2rem 5%;border-top:1px solid rgba(255,255
   .footer-note{text-align:left}
 }
 
-/* Dynamic Tours */
-.live-tours-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
-.live-badge{display:inline-flex;align-items:center;gap:.4rem;background:#ECFDF5;border:1px solid #A7F3D0;color:#065F46;font-size:.68rem;font-weight:700;padding:.28rem .65rem;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
-.live-dot{width:6px;height:6px;border-radius:50%;background:#10B981;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.tour-grid-dynamic{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.tour-card-d{background:#fff;border:1px solid var(--gray-200);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);transition:all .2s}
-.tour-card-d:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.tour-img{width:100%;height:150px;object-fit:cover;display:block;background:var(--gray-100)}
-.tour-img-placeholder{width:100%;height:150px;background:linear-gradient(135deg,#1a3a5c,#4a8ab5);display:flex;align-items:center;justify-content:center;font-size:2.5rem}
-.tour-body-d{padding:1rem}
-.tour-partner-row{display:flex;gap:.4rem;margin-bottom:.5rem}
-.tour-chip-v{font-size:.65rem;font-weight:800;padding:.2rem .5rem;border-radius:4px;background:#FFF0ED;color:#FF5533;letter-spacing:.06em;text-transform:uppercase}
-.tour-chip-g{font-size:.65rem;font-weight:800;padding:.2rem .5rem;border-radius:4px;background:#FFF0ED;color:#FF5500;letter-spacing:.06em;text-transform:uppercase}
-.tour-title-d{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;color:var(--black);line-height:1.35;margin-bottom:.5rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.tour-meta-d{font-size:.75rem;color:var(--gray-500);margin-bottom:.75rem}
-.tour-footer-d{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
-.tour-price-d{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;color:var(--black)}
-.tour-btns{display:flex;gap:.35rem}
-.btn-v{display:inline-flex;align-items:center;padding:.5rem .7rem;border-radius:8px;background:var(--black);color:#fff;font-size:.72rem;font-weight:800;text-decoration:none}
-.btn-v:hover{background:var(--accent)}
-.btn-g{display:inline-flex;align-items:center;padding:.5rem .7rem;border-radius:8px;background:#FF5500;color:#fff;font-size:.72rem;font-weight:800;text-decoration:none}
-.btn-g:hover{background:#CC4400}
-.tours-loading{text-align:center;padding:2rem;color:var(--gray-400);font-size:.9rem}
-.tours-error{text-align:center;padding:2rem;color:var(--gray-500);font-size:.85rem}
-@media(max-width:768px){.tour-grid-dynamic{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.tour-grid-dynamic{grid-template-columns:1fr}}
+
 
 </style>
 <!-- Google Analytics -->
@@ -357,7 +331,7 @@ footer{background:var(--black);padding:2rem 5%;border-top:1px solid rgba(255,255
     <a class="platform-logo" href="https://www.booking.com/searchresults.html?ss=Istanbul&aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener">💙 Booking.com</a>
     <a class="platform-logo" href="https://www.skyscanner.net/transport/flights-to/ist/?associateid=AFF_TRA_19354_00001" target="_blank" rel="sponsored noopener">🔵 Skyscanner</a>
     <a class="platform-logo" href="https://www.viator.com/Istanbul/d585-ttd?pid=P00299057" target="_blank" rel="sponsored noopener">🟢 Viator</a>
-    <a class="platform-logo" href="https://www.thefork.com/city/istanbul?aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener">🍴 TheFork</a>
+    <a class="platform-logo" href="https://maps.google.com/?q=best+restaurant+istanbul" target="_blank" rel="sponsored noopener">📍 Google Maps</a>
       <a class="platform-logo" href="https://www.getyourguide.com/istanbul-l56/?partner_id=JX2UR2V" target="_blank" rel="sponsored noopener">🟠 GetYourGuide</a>
   </div>
 </div>
@@ -521,85 +495,7 @@ footer{background:var(--black);padding:2rem 5%;border-top:1px solid rgba(255,255
       </div>
 
       <
-<!-- DYNAMIC VIATOR TOURS -->
-<section class="section gray" id="tours">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-tag en-only">Tours & tickets</div>
-        <div class="section-tag tr-only">Turlar & biletler</div>
-        <div class="section-title en-only">Top Istanbul experiences</div>
-        <div class="section-title tr-only">İstanbul'un en iyi deneyimleri</div>
-        <div class="section-sub en-only">Live prices and availability from Viator — updated daily.</div>
-        <div class="section-sub tr-only">Viator'dan canlı fiyat ve müsaitlik — günlük güncelleniyor.</div>
-      </div>
-      <div class="live-badge">
-        <div class="live-dot"></div>
-        <span class="en-only">Live prices</span>
-        <span class="tr-only">Canlı fiyatlar</span>
-      </div>
-    </div>
 
-    <div id="dynamic-tours">
-      <div class="tours-loading">
-        <span class="en-only">Loading Istanbul tours...</span>
-        <span class="tr-only">İstanbul turları yükleniyor...</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-async function loadIstanbulTours() {
-  const container = document.getElementById('dynamic-tours');
-  const lang = document.documentElement.lang || 'en';
-  
-  try {
-    const res = await fetch('/.netlify/functions/tours?city=d585&lang=' + lang);
-    const data = await res.json();
-    
-    if (!data.tours || data.tours.length === 0) {
-      container.innerHTML = '<div class="tours-error">Turlar şu an yüklenemiyor.</div>';
-      return;
-    }
-
-    container.innerHTML = '<div class="tour-grid-dynamic">' + 
-      data.tours.map(t => {
-        const price = t.price ? '€' + Math.round(t.price) : '';
-        const rating = t.rating ? '⭐ ' + t.rating.toFixed(1) : '';
-        const duration = t.duration || '';
-        const gyg_url = 'https://www.getyourguide.com/istanbul-l56/?partner_id=JX2UR2V';
-        
-        return \`<div class="tour-card-d">
-          \${t.image 
-            ? \`<img class="tour-img" src="\${t.image}" alt="\${t.title}" loading="lazy">\`
-            : '<div class="tour-img-placeholder">🏛️</div>'
-          }
-          <div class="tour-body-d">
-            <div class="tour-partner-row">
-              <span class="tour-chip-v">Viator</span>
-              <span class="tour-chip-g">GetYourGuide</span>
-            </div>
-            <div class="tour-title-d">\${t.title}</div>
-            <div class="tour-meta-d">\${[rating, duration].filter(Boolean).join(' · ')}</div>
-            <div class="tour-footer-d">
-              <div class="tour-price-d">\${price ? 'From ' + price : ''}</div>
-              <div class="tour-btns">
-                <a class="btn-v" href="\${t.url}" target="_blank" rel="sponsored noopener">Viator →</a>
-                <a class="btn-g" href="\${gyg_url}" target="_blank" rel="sponsored noopener">GYG →</a>
-              </div>
-            </div>
-          </div>
-        </div>\`;
-      }).join('') + '</div>';
-
-  } catch(e) {
-    container.innerHTML = '<div class="tours-error">Bağlantı hatası. Lütfen sayfayı yenileyin.</div>';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', loadIstanbulTours);
-</script>
 ar-gradient(135deg,#1a1a3a,#5a5aaa)">🪔</div>
         <div class="tour-body">
           <div class="partner-chip">Viator</div>
@@ -667,7 +563,7 @@ ar-gradient(135deg,#1a1a3a,#5a5aaa)">🪔</div>
           <div class="rest-footer">
             <span class="rest-price en-only">€€ · Worth every cent</span>
             <span class="rest-price tr-only">€€ · Her kuruşa değer</span>
-            <a class="inline-btn" href="https://www.thefork.com/city/istanbul?aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener">
+            <a class="inline-btn" href="https://maps.google.com/?q=best+restaurant+istanbul" target="_blank" rel="sponsored noopener">
               <span class="en-only">Reserve</span>
               <span class="tr-only">Rezerve et</span>
             </a>
@@ -703,7 +599,7 @@ ar-gradient(135deg,#1a1a3a,#5a5aaa)">🪔</div>
           <div class="rest-footer">
             <span class="rest-price en-only">€€ · Kadıköy, ferry needed</span>
             <span class="rest-price tr-only">€€ · Kadıköy, feribot lazım</span>
-            <a class="inline-btn" href="https://www.thefork.com/city/istanbul?aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener">
+            <a class="inline-btn" href="https://maps.google.com/?q=best+restaurant+istanbul" target="_blank" rel="sponsored noopener">
               <span class="en-only">Reserve</span>
               <span class="tr-only">Rezerve et</span>
             </a>
@@ -721,7 +617,7 @@ ar-gradient(135deg,#1a1a3a,#5a5aaa)">🪔</div>
           <div class="rest-footer">
             <span class="rest-price en-only">€€€ · Special dinner</span>
             <span class="rest-price tr-only">€€€ · Özel akşam yemeği</span>
-            <a class="inline-btn" href="https://www.thefork.com/city/istanbul?aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener">
+            <a class="inline-btn" href="https://maps.google.com/?q=best+restaurant+istanbul" target="_blank" rel="sponsored noopener">
               <span class="en-only">Reserve</span>
               <span class="tr-only">Rezerve et</span>
             </a>
@@ -948,7 +844,7 @@ ar-gradient(135deg,#1a1a3a,#5a5aaa)">🪔</div>
       <a href="https://www.skyscanner.net/transport/flights-to/ist/?associateid=AFF_TRA_19354_00001" target="_blank" rel="sponsored noopener" class="btn-primary">✈ <span class="en-only">Flights</span><span class="tr-only">Uçuşlar</span></a>
       <a href="https://www.booking.com/searchresults.html?ss=Istanbul&aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener" class="btn-secondary">🏨 <span class="en-only">Hotels</span><span class="tr-only">Oteller</span></a>
       <a href="https://www.viator.com/Istanbul/d585-ttd?pid=P00299057" target="_blank" rel="sponsored noopener" class="btn-secondary">🎫 <span class="en-only">Tours</span><span class="tr-only">Turlar</span></a>
-      <a href="https://www.thefork.com/city/istanbul?aid=YOUR_AFF_ID" target="_blank" rel="sponsored noopener" class="btn-secondary">🍴 <span class="en-only">Restaurants</span><span class="tr-only">Restoranlar</span></a>
+      <a href="https://maps.google.com/?q=best+restaurant+istanbul" target="_blank" rel="sponsored noopener" class="btn-secondary">🍴 <span class="en-only">Restaurants</span><span class="tr-only">Restoranlar</span></a>
     </div>
   </div>
 </section>
