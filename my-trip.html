@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Trip Planner — Organize Your Travel | Triply</title>
+<meta name="description" content="Plan your entire trip in one place. Add flights, hotels, tours and restaurants — all saved privately in your browser. Free, no account needed.">
+<link rel="canonical" href="https://triply.info/my-trip.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WPNDK8F7SW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WPNDK8F7SW');</script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--accent:#FF5533;--gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-600:#4B5563;--shadow-sm:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 16px rgba(0,0,0,.1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:#111827;min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+nav{height:64px;background:#fff;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--black)}
+.nav-logo span{color:var(--accent)}
+
+.hero{background:var(--black);padding:3rem 5%;text-align:center}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:800;color:#fff;letter-spacing:-.04em;margin-bottom:.6rem}
+.hero h1 em{color:#FF5533;font-style:normal}
+.hero p{color:rgba(255,255,255,.55);font-size:.95rem;max-width:480px;margin:0 auto 1.5rem}
+.hero-badges{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);font-size:.72rem;font-weight:600;padding:.3rem .7rem;border-radius:20px}
+
+.main{max-width:900px;margin:0 auto;padding:2rem 5%}
+
+/* Trip header */
+.trip-header{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow-sm)}
+.trip-header-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.trip-name-input{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--black);border:none;outline:none;background:transparent;width:100%;max-width:400px}
+.trip-name-input::placeholder{color:var(--gray-400)}
+.trip-dates{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+.date-input{border:1px solid var(--gray-200);border-radius:8px;padding:.45rem .8rem;font-size:.82rem;color:var(--gray-600);font-family:'DM Sans',sans-serif;background:#fff}
+.date-sep{color:var(--gray-400);font-size:.82rem}
+.trip-actions{display:flex;gap:.6rem}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1rem;border-radius:9px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;transition:all .15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#CC3311}
+.btn-secondary{background:var(--gray-100);color:var(--gray-600)}
+.btn-secondary:hover{background:var(--gray-200)}
+.btn-ghost{background:transparent;color:var(--gray-400);padding:.4rem .6rem}
+.btn-ghost:hover{color:var(--accent)}
+
+/* Add item bar */
+.add-bar{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow-sm)}
+.add-bar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gray-400);margin-bottom:.9rem}
+.type-btns{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.type-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .9rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:1.5px solid var(--gray-200);background:#fff;color:var(--gray-500);transition:all .15s}
+.type-btn.active,.type-btn:hover{border-color:var(--accent);color:var(--accent);background:#FFF5F3}
+.add-form{display:grid;grid-template-columns:1fr 1fr auto;gap:.7rem;align-items:end}
+.form-group{display:flex;flex-direction:column;gap:.3rem}
+.form-group label{font-size:.72rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.08em}
+.form-input{border:1px solid var(--gray-200);border-radius:8px;padding:.55rem .8rem;font-size:.85rem;color:var(--black);font-family:'DM Sans',sans-serif;background:#fff;outline:none;transition:border .15s}
+.form-input:focus{border-color:var(--accent)}
+.form-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;margin-top:.7rem}
+
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:.8rem}
+.day-group{background:#fff;border:1px solid var(--gray-200);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.day-header{background:var(--gray-50);border-bottom:1px solid var(--gray-200);padding:.8rem 1.2rem;display:flex;align-items:center;gap:.8rem}
+.day-date{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:800;color:var(--black)}
+.day-count{font-size:.72rem;color:var(--gray-400);font-weight:600}
+.items-list{padding:.6rem}
+
+/* Item card */
+.item-card{display:flex;align-items:flex-start;gap:.9rem;padding:.9rem;border-radius:10px;transition:background .15s;position:relative}
+.item-card:hover{background:var(--gray-50)}
+.item-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.item-icon.flight{background:#EFF6FF}
+.item-icon.hotel{background:#F0FDF4}
+.item-icon.tour{background:#FFF7ED}
+.item-icon.restaurant{background:#FDF4FF}
+.item-icon.car{background:#F0F9FF}
+.item-icon.train{background:#FAFAF0}
+.item-icon.note{background:#F9FAFB}
+.item-body{flex:1;min-width:0}
+.item-title{font-weight:700;font-size:.9rem;color:var(--black);margin-bottom:.15rem}
+.item-meta{font-size:.78rem;color:var(--gray-500);line-height:1.5}
+.item-link{font-size:.75rem;color:var(--accent);font-weight:600;margin-top:.3rem;display:inline-block}
+.item-link:hover{text-decoration:underline}
+.item-delete{opacity:0;position:absolute;right:.6rem;top:.6rem;background:none;border:none;color:var(--gray-400);cursor:pointer;font-size:1rem;padding:.2rem;transition:all .15s}
+.item-card:hover .item-delete{opacity:1}
+.item-delete:hover{color:#CC0000}
+.item-time{font-size:.72rem;color:var(--gray-400);font-weight:600;white-space:nowrap;flex-shrink:0;margin-top:.3rem}
+
+/* Empty state */
+.empty{text-align:center;padding:3rem;color:var(--gray-400)}
+.empty-icon{font-size:3rem;margin-bottom:.8rem;display:block}
+.empty h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--gray-500);margin-bottom:.4rem}
+.empty p{font-size:.85rem;line-height:1.6}
+
+/* Summary bar */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:1.5rem}
+.sum-card{background:#fff;border:1px solid var(--gray-200);border-radius:12px;padding:.9rem;text-align:center;box-shadow:var(--shadow-sm)}
+.sum-card strong{display:block;font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--black);line-height:1}
+.sum-card span{font-size:.7rem;color:var(--gray-400);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+
+/* Print */
+@media print{nav,no-print{display:none}.main{padding:0}.item-delete{display:none}}
+
+@media(max-width:768px){.add-form{grid-template-columns:1fr}.form-row{grid-template-columns:1fr 1fr}.summary{grid-template-columns:1fr 1fr}.trip-header-top{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Triply<span>.</span></a>
+  <div style="display:flex;gap:.6rem">
+    <button class="btn btn-secondary" onclick="window.print()">🖨️ Print</button>
+    <button class="btn btn-ghost" onclick="clearAll()" title="Clear all">🗑️</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>My <em>Trip</em> Planner</h1>
+  <p>Add your flights, hotels, tours and restaurants. Everything in one place — saved privately in your browser.</p>
+  <div class="hero-badges">
+    <span class="badge">🔒 Private — saved only on your device</span>
+    <span class="badge">✈️ Flights</span>
+    <span class="badge">🏨 Hotels</span>
+    <span class="badge">🎫 Tours</span>
+    <span class="badge">🍽️ Restaurants</span>
+    <span class="badge">🚗 Car rental</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Trip Header -->
+  <div class="trip-header">
+    <div class="trip-header-top">
+      <input type="text" class="trip-name-input" id="tripName" placeholder="My Trip to Istanbul..." oninput="saveTripName()">
+      <div class="trip-dates">
+        <input type="date" class="date-input" id="dateFrom" onchange="saveDates()">
+        <span class="date-sep">→</span>
+        <input type="date" class="date-input" id="dateTo" onchange="saveDates()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary" id="summary">
+    <div class="sum-card"><strong id="s-flights">0</strong><span>Flights</span></div>
+    <div class="sum-card"><strong id="s-hotels">0</strong><span>Hotels</span></div>
+    <div class="sum-card"><strong id="s-tours">0</strong><span>Tours</span></div>
+    <div class="sum-card"><strong id="s-other">0</strong><span>More</span></div>
+  </div>
+
+  <!-- Add Bar -->
+  <div class="add-bar no-print">
+    <div class="add-bar-title">Add to your trip</div>
+    <div class="type-btns">
+      <button class="type-btn active" onclick="setType('flight',this)">✈️ Flight</button>
+      <button class="type-btn" onclick="setType('hotel',this)">🏨 Hotel</button>
+      <button class="type-btn" onclick="setType('tour',this)">🎫 Tour / Activity</button>
+      <button class="type-btn" onclick="setType('restaurant',this)">🍽️ Restaurant</button>
+      <button class="type-btn" onclick="setType('car',this)">🚗 Car Rental</button>
+      <button class="type-btn" onclick="setType('train',this)">🚂 Train / Transfer</button>
+      <button class="type-btn" onclick="setType('note',this)">📝 Note</button>
+    </div>
+
+    <div id="addForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" class="form-input" id="f-date">
+        </div>
+        <div class="form-group">
+          <label>Time</label>
+          <input type="time" class="form-input" id="f-time">
+        </div>
+        <div class="form-group" id="fg-conf" style="display:none">
+          <label>Confirmation #</label>
+          <input type="text" class="form-input" id="f-conf" placeholder="ABC123">
+        </div>
+      </div>
+      <div class="form-row" style="margin-top:.7rem">
+        <div class="form-group" style="grid-column:1/-1" id="fg-title">
+          <label id="title-label">Title</label>
+          <input type="text" class="form-input" id="f-title" placeholder="Enter details...">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group" style="grid-column:1/3">
+          <label>Notes (optional)</label>
+          <input type="text" class="form-input" id="f-notes" placeholder="Add any notes...">
+        </div>
+        <div class="form-group">
+          <label>Link (optional)</label>
+          <input type="url" class="form-input" id="f-link" placeholder="https://...">
+        </div>
+      </div>
+      <div style="margin-top:.8rem">
+        <button class="btn btn-primary" onclick="addItem()">+ Add to Trip</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline" id="timeline">
+    <div class="empty" id="emptyState">
+      <span class="empty-icon">🗺️</span>
+      <h3>Your trip is empty</h3>
+      <p>Start adding flights, hotels, tours and restaurants above.<br>Everything stays private — saved only on your device.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const ICONS = {
+  flight:'✈️', hotel:'🏨', tour:'🎫', restaurant:'🍽️', 
+  car:'🚗', train:'🚂', note:'📝'
+};
+const LABELS = {
+  flight:'Flight details (e.g. TK1234 Istanbul → London)', 
+  hotel:'Hotel name and address',
+  tour:'Tour or activity name',
+  restaurant:'Restaurant name',
+  car:'Car rental details',
+  train:'Train or transfer details',
+  note:'Note'
+};
+
+let currentType = 'flight';
+let items = JSON.parse(localStorage.getItem('triply_items') || '[]');
+
+function setType(type, el) {
+  currentType = type;
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('title-label').textContent = LABELS[type] || 'Details';
+  document.getElementById('f-title').placeholder = LABELS[type] || 'Enter details...';
+  document.getElementById('fg-conf').style.display = 
+    ['flight','hotel','car','train'].includes(type) ? 'block' : 'none';
+}
+
+function addItem() {
+  const date = document.getElementById('f-date').value;
+  const time = document.getElementById('f-time').value;
+  const title = document.getElementById('f-title').value.trim();
+  const notes = document.getElementById('f-notes').value.trim();
+  const link = document.getElementById('f-link').value.trim();
+  const conf = document.getElementById('f-conf').value.trim();
+  
+  if (!title) {
+    document.getElementById('f-title').focus();
+    document.getElementById('f-title').style.borderColor = '#FF5533';
+    setTimeout(() => document.getElementById('f-title').style.borderColor = '', 1500);
+    return;
+  }
+  
+  const item = {
+    id: Date.now(),
+    type: currentType,
+    date, time, title, notes, link, conf
+  };
+  
+  items.push(item);
+  saveItems();
+  renderTimeline();
+  
+  // Clear form
+  document.getElementById('f-title').value = '';
+  document.getElementById('f-notes').value = '';
+  document.getElementById('f-link').value = '';
+  document.getElementById('f-conf').value = '';
+}
+
+function deleteItem(id) {
+  items = items.filter(i => i.id !== id);
+  saveItems();
+  renderTimeline();
+}
+
+function saveItems() {
+  localStorage.setItem('triply_items', JSON.stringify(items));
+  updateSummary();
+}
+
+function saveTripName() {
+  localStorage.setItem('triply_tripname', document.getElementById('tripName').value);
+}
+
+function saveDates() {
+  localStorage.setItem('triply_dates', JSON.stringify({
+    from: document.getElementById('dateFrom').value,
+    to: document.getElementById('dateTo').value
+  }));
+}
+
+function updateSummary() {
+  document.getElementById('s-flights').textContent = items.filter(i=>i.type==='flight').length;
+  document.getElementById('s-hotels').textContent = items.filter(i=>i.type==='hotel').length;
+  document.getElementById('s-tours').textContent = items.filter(i=>i.type==='tour').length;
+  document.getElementById('s-other').textContent = items.filter(i=>!['flight','hotel','tour'].includes(i.type)).length;
+}
+
+function renderTimeline() {
+  const tl = document.getElementById('timeline');
+  const empty = document.getElementById('emptyState');
+  
+  if (items.length === 0) {
+    tl.innerHTML = '';
+    tl.appendChild(empty);
+    empty.style.display = 'block';
+    return;
+  }
+  
+  empty.style.display = 'none';
+  
+  // Group by date
+  const grouped = {};
+  const nodateKey = 'No date';
+  
+  items.forEach(item => {
+    const key = item.date || nodateKey;
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(item);
+  });
+  
+  // Sort dates
+  const sortedDates = Object.keys(grouped).sort((a,b) => {
+    if (a === nodateKey) return 1;
+    if (b === nodateKey) return -1;
+    return a.localeCompare(b);
+  });
+  
+  tl.innerHTML = '';
+  
+  sortedDates.forEach(dateKey => {
+    const dayItems = grouped[dateKey].sort((a,b) => (a.time||'').localeCompare(b.time||''));
+    
+    const group = document.createElement('div');
+    group.className = 'day-group';
+    
+    const dateLabel = dateKey === nodateKey ? 'No date set' : 
+      new Date(dateKey + 'T12:00:00').toLocaleDateString('en-US', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+    
+    group.innerHTML = `
+      <div class="day-header">
+        <span class="day-date">${dateLabel}</span>
+        <span class="day-count">${dayItems.length} item${dayItems.length>1?'s':''}</span>
+      </div>
+      <div class="items-list">
+        ${dayItems.map(item => `
+          <div class="item-card">
+            <div class="item-icon ${item.type}">${ICONS[item.type]||'📌'}</div>
+            <div class="item-body">
+              <div class="item-title">${item.title}</div>
+              <div class="item-meta">
+                ${item.conf ? `<span style="background:#F3F4F6;padding:.1rem .4rem;border-radius:4px;font-size:.7rem;font-weight:700;margin-right:.4rem">${item.conf}</span>` : ''}
+                ${item.notes || ''}
+              </div>
+              ${item.link ? `<a href="${item.link}" target="_blank" class="item-link">→ Open booking</a>` : ''}
+            </div>
+            ${item.time ? `<div class="item-time">${item.time}</div>` : ''}
+            <button class="item-delete" onclick="deleteItem(${item.id})">✕</button>
+          </div>
+        `).join('')}
+      </div>`;
+    
+    tl.appendChild(group);
+  });
+}
+
+function clearAll() {
+  if (confirm('Clear your entire trip? This cannot be undone.')) {
+    items = [];
+    saveItems();
+    renderTimeline();
+  }
+}
+
+// Load saved data
+window.onload = function() {
+  const saved = localStorage.getItem('triply_tripname');
+  if (saved) document.getElementById('tripName').value = saved;
+  
+  const dates = JSON.parse(localStorage.getItem('triply_dates') || '{}');
+  if (dates.from) document.getElementById('dateFrom').value = dates.from;
+  if (dates.to) document.getElementById('dateTo').value = dates.to;
+  
+  updateSummary();
+  renderTimeline();
+};
+</script>
+
+</body>
+</html>
