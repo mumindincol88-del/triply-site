@@ -291,7 +291,7 @@ footer{background:var(--black);padding:3rem 0 2rem;margin-top:0}
           <span class="hero-suggestion" onclick="quickGo('triply_istanbul_page.html')">🇹🇷 Istanbul</span>
           <span class="hero-suggestion" onclick="quickGo('triply_canakkale_page.html')">🇹🇷 Çanakkale</span>
           <span class="hero-suggestion" onclick="quickGo('triply_antalya_page.html')">🇹🇷 Antalya</span>
-          <span class="hero-suggestion" style="opacity:.5;cursor:default">🇹🇷 İzmir (yakında)</span>
+          <span class="hero-suggestion" onclick="quickGo('triply_izmir_page.html')">🇹🇷 İzmir</span>
           <span class="hero-suggestion" style="opacity:.5;cursor:default">🇹🇷 Kapadokya (yakında)</span>
         </div>
         <div id="searchDropdown" style="display:none;background:#fff;border:1.5px solid var(--gray-200);border-radius:12px;margin-top:.4rem;box-shadow:var(--shadow-md);overflow:hidden"></div>
@@ -475,17 +475,17 @@ footer{background:var(--black);padding:3rem 0 2rem;margin-top:0}
         </div>
       </a>
 
-      <!-- İzmir — coming soon -->
-      <div class="dest-card coming-soon">
+      <!-- İzmir — LIVE -->
+      <a class="dest-card" href="triply_izmir_page.html">
         <div class="dest-bg" style="background-image:url('https://images.unsplash.com/photo-1596394723269-b2cbca4e7e33?w=900&q=80&auto=format&fit=crop')"></div>
         <div class="dest-content">
-          <div class="dest-kicker" style="background:rgba(0,0,0,.3);border-color:rgba(255,255,255,.15)">🔜 <span class="en-only">Coming soon</span><span class="tr-only">Yakında</span></div>
+          <div class="dest-kicker">🆕 <span class="en-only">New</span><span class="tr-only">Yeni</span></div>
           <div class="dest-name">İzmir</div>
-          <div class="dest-meta">Kordon, Kemeraltı & Aegean coast.</div>
-          <div class="dest-highlight">🌊 Aegean · 🍽️ Food · ☀️ Coast</div>
-          <div class="dest-bottom"><span class="coming-soon-btn en-only">In progress…</span><span class="coming-soon-btn tr-only">Hazırlanıyor…</span></div>
+          <div class="dest-meta">Kordon, Alaçatı, Urla & Ephesus.</div>
+          <div class="dest-highlight">🌊 Aegean · 🍷 Urla · 🏛️ Ephesus</div>
+          <div class="dest-bottom"><span class="dest-plan-btn">🗓️ Plan My Trip</span></div>
         </div>
-      </div>
+      </a>
 
       <!-- Gaziantep — coming soon -->
       <div class="dest-card coming-soon">
@@ -667,7 +667,7 @@ footer{background:var(--black);padding:3rem 0 2rem;margin-top:0}
         <a href="triply_istanbul_page.html">İstanbul</a>
         <a href="triply_canakkale_page.html">Çanakkale</a>
         <a href="triply_antalya_page.html">Antalya</a>
-        <a style="color:rgba(255,255,255,.3);cursor:default">İzmir <span style="font-size:.7rem">(yakında)</span></a>
+        <a href="triply_izmir_page.html">İzmir</a>
         <a style="color:rgba(255,255,255,.3);cursor:default">Kapadokya <span style="font-size:.7rem">(yakında)</span></a>
         <a style="color:rgba(255,255,255,.3);cursor:default">Gaziantep <span style="font-size:.7rem">(yakında)</span></a>
         <a style="color:rgba(255,255,255,.3);cursor:default">Bodrum <span style="font-size:.7rem">(yakında)</span></a>
@@ -695,6 +695,7 @@ footer{background:var(--black);padding:3rem 0 2rem;margin-top:0}
 const cities=[
   {name:'Istanbul',flag:'🇹🇷',file:'triply_istanbul_page.html',tags:['culture','food','city'],keys:['istanbul','türkiye','turkey'],reasons:{culture:'Two continents, 3,000 years of history',food:"One of the world's top food cities",city:'Vibrant nightlife, Bosphorus views',short:'3–4 days covers the essentials',week:'Perfect for a full immersion'}},
   {name:'Çanakkale',flag:'🇹🇷',file:'triply_canakkale_page.html',tags:['culture','beach'],keys:['çanakkale','canakkale','gallipoli','troy','truva'],reasons:{culture:'Gallipoli battlefields + ancient Troy',beach:'Gökçeada wild beaches + 175 WWI wrecks',short:'3 days covers Gallipoli + Troy perfectly'}},
+  {name:'İzmir',flag:'🇹🇷',file:'triply_izmir_page.html',tags:['beach','food','culture','city'],keys:['izmir','i̇zmir','alacati','alaçatı','cesme','çeşme','urla','efes','ephesus'],reasons:{beach:'Çeşme, Alaçatı + wild Karaburun coves',food:'Boyoz, kumru + Urla gastronomy scene',culture:'Ephesus, Kemeraltı bazaar, ancient Smyrna',city:'Kordon sunsets, Alsancak nightlife'}},
   {name:'Antalya',flag:'🇹🇷',file:'triply_antalya_page.html',tags:['beach','culture'],keys:['antalya','türkiye','turkey'],reasons:{beach:'Turkish Riviera — crystal water',culture:'Kaleiçi old city, Roman ruins'}},
 ];
 
